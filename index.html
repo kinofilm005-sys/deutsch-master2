@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsch Master - Изучайте немецкий язык</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">🇩🇪</span>
+                <span class="logo-text">Deutsch Master</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#features" class="nav-link">Возможности</a></li>
+                <li><a href="#dictionary" class="nav-link">Словарь</a></li>
+                <li><a href="#games" class="nav-link">Игры</a></li>
+                <li><a href="#chat" class="nav-link">Чат</a></li>
+                <li><a href="#leaderboard" class="nav-link">Рейтинг</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <span class="navbar-status" id="navbarStatus">Гость</span>
+                <button class="btn btn-primary" id="loginBtn" style="display: none;">Вход</button>
+                <button class="btn btn-secondary" id="registerBtn" style="display: none;">Регистрация</button>
+                <button class="btn btn-danger" id="logoutBtn" style="display: none;">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Deutsch Master</h1>
+            <p class="hero-subtitle">Изучайте немецкий язык через игры, словарь и общение</p>
+            <button class="btn btn-cta" id="ctaBtn">Начать обучение →</button>
+        </div>
+        <div class="hero-particles" id="heroParticles"></div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Возможности</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Словарь</h3>
+                    <p>50+ реальных немецких слов с озвучкой и примерами</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Игры</h3>
+                    <p>Дуэль, викторина и грамматический забег</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Чат</h3>
+                    <p>Общайтесь с другими учениками по уровням</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Рейтинг</h3>
+                    <p>Соревнуйтесь с другими пользователями</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DICTIONARY -->
+    <section class="dictionary" id="dictionary">
+        <div class="container">
+            <h2 class="section-title">Словарь</h2>
+            <div class="dictionary-controls">
+                <input type="text" id="dictSearch" class="form-input" placeholder="Поиск по немецкому или русскому...">
+                <select id="dictLevel" class="form-select">
+                    <option value="">Все уровни</option>
+                    <option value="A1">A1 (Начинающий)</option>
+                    <option value="A2">A2 (Начинающий+)</option>
+                    <option value="B1">B1 (Средний)</option>
+                    <option value="B2">B2 (Средний+)</option>
+                    <option value="C1">C1 (Продвинутый)</option>
+                    <option value="C2">C2 (Мастер)</option>
+                </select>
+            </div>
+            <div class="dictionary-list" id="dictionaryList"></div>
+            <button class="btn btn-secondary" id="dictionaryLoadMore" style="margin-top: 2rem;">Показать ещё</button>
+        </div>
+    </section>
+
+    <!-- GAMES -->
+    <section class="games" id="games">
+        <div class="container">
+            <h2 class="section-title">Игры</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <h3>⚔️ Дуэль</h3>
+                    <p>Соревнуйтесь с противником за 20 секунд на 10 вопросов</p>
+                    <button class="btn btn-primary" id="gameDuelBtn">Начать дуэль</button>
+                </div>
+                <div class="game-card">
+                    <h3>🎯 Викторина</h3>
+                    <p>60 вопросов с растущей сложностью</p>
+                    <button class="btn btn-primary" id="gameQuizBtn">Начать викторину</button>
+                </div>
+                <div class="game-card">
+                    <h3>🏃 Грамматический забег</h3>
+                    <p>Исправьте 15 предложений в ограниченное время</p>
+                    <button class="btn btn-primary" id="gameGrammarBtn">Начать забег</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAT -->
+    <section class="chat" id="chat">
+        <div class="container">
+            <h2 class="section-title">Чат</h2>
+            <div class="chat-container">
+                <div class="chat-rooms">
+                    <h3>Комнаты</h3>
+                    <button class="chat-room-btn active" data-room="A1-A2">A1-A2</button>
+                    <button class="chat-room-btn" data-room="B1-B2">B1-B2</button>
+                    <button class="chat-room-btn" data-room="C1-C2">C1-C2</button>
+                    <button class="chat-room-btn" data-room="conversation">Разговорный</button>
+                </div>
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <h3 id="chatRoomTitle">A1-A2</h3>
+                        <div class="online-users" id="onlineUsers"></div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" class="form-input" placeholder="Напишите сообщение...">
+                        <button class="btn btn-primary" id="chatSendBtn">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section class="leaderboard" id="leaderboard">
+        <div class="container">
+            <h2 class="section-title">Рейтинг</h2>
+            <div class="leaderboard-top" id="leaderboardTop"></div>
+            <button class="btn btn-secondary" id="leaderboardFullBtn" style="margin-top: 2rem;">Загрузить полный рейтинг</button>
+        </div>
+    </section>
+
+    <!-- AUTH MODALS -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="loginClose">&times;</button>
+            <h2>Вход</h2>
+            <form id="loginForm">
+                <input type="email" class="form-input" id="loginEmail" placeholder="Email" required>
+                <input type="password" class="form-input" id="loginPassword" placeholder="Пароль (минимум 6 символов)" required>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Войти</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <button class="modal-close" id="registerClose">&times;</button>
+            <h2>Регистрация</h2>
+            <form id="registerForm">
+                <input type="text" class="form-input" id="registerName" placeholder="Имя" required>
+                <input type="email" class="form-input" id="registerEmail" placeholder="Email" required>
+                <input type="password" class="form-input" id="registerPassword" placeholder="Пароль (минимум 6 символов)" required>
+                <div class="avatar-selector">
+                    <p>Выберите аватар:</p>
+                    <div class="avatar-options" id="avatarOptions"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="leaderboardFullModal">
+        <div class="modal-content modal-large">
+            <button class="modal-close" id="leaderboardFullClose">&times;</button>
+            <h2>Полный рейтинг</h2>
+            <div class="leaderboard-full" id="leaderboardFull"></div>
+        </div>
+    </div>
+
+    <!-- GAME RESULT MODAL -->
+    <div class="modal" id="gameResultModal">
+        <div class="modal-content">
+            <button class="modal-close" id="gameResultClose">&times;</button>
+            <h2 id="gameResultTitle">Результат</h2>
+            <div id="gameResultContent"></div>
+            <button class="btn btn-primary" id="gameResultBtn" style="width: 100%; margin-top: 1rem;">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
